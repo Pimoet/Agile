@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 {
     public float projectileSpeed;
 
-    public BoxCollider2D ArrowCollidder;
+    public BoxCollider2D Collider;
 
     //projectile target
     private GameObject player;
