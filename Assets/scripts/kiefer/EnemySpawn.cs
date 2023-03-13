@@ -37,7 +37,7 @@ public class EnemySpawn : MonoBehaviour
         {
             StartCoroutine(waitfortime(5));
             spawning = true;
-            StartCoroutine(waitfortime(5));
+            StartCoroutine(waitfortime(10));
             spawning = false;
         }
     }
