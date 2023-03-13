@@ -13,6 +13,7 @@ public class PlayerData : ScriptableObject
     public float MaxHealth;
     public float CurrentHealth;
     public float MovementSpeed;
+    public float MovementSpeedModifier;
 
 
     [Header("Lists and Indexes")]

@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:Assets/Imports/AstarPathfindingProject/Documentation/documentation.pdf.meta
-guid: 4f578a5f3e07c7a499b80bffe3133818
-========
-guid: d4002b872da5d9d46abf439e36ef56da
->>>>>>>> Stashed changes:Assets/Imports/Character/@FAseprite/BackSide.aseprite.meta
-=======
 <<<<<<<< HEAD:Assets/Imports/Character/@FAseprite/Back.aseprite.meta
 guid: 4d97dee475d064b448e2330272f37015
 ========
 guid: 3b746da7b40c860c894ce656f273a7de
 >>>>>>>> 0668a56df02bec72ce3d6549bdfb3df98245d0e6:Assets/Imports/AstarPathfindingProject/Documentation/documentation.pdf.meta
->>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 
