@@ -11,17 +11,11 @@ public class SlayQuest : QuestSO
 
     //Event from player called OnEnemyKill PlayerCombat.OnEnemyKill += CheckQuest
 
-    public override void CompleteQuest()
+    public override void OnStartQuest()
     {
-        Debug.Log("you've completed the slaying quest");
-        //give player reward, remove quest from list and unsubscrible from events
+        CurrentCount = 0;
+        //Update UI and stuff
     }
-
-    public override void FailQuest()
-    {
-        // depends on each quest, might make specific SO's for completing and failing quests
-    }
-
     public void CheckQuest(string name) // call on enemy kill
     {
         if(name == EnemyName)
@@ -34,8 +28,5 @@ public class SlayQuest : QuestSO
         }
     }
 
-    private void OnDisable()
-    {
-        //unsubscribe from events
-    }
+    
 }

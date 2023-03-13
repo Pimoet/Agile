@@ -4,17 +4,22 @@ using UnityEngine;
 
 public abstract class QuestSO : ScriptableObject
 {
-    public string Name;
+    public string QuestName;
 
     [TextArea(4,4)]
     public string Description;
 
     public float Reward; // money for now, can be changed to items or create a list of things that could be rewards.
     public QuestTypes QuestType;
+    public bool RestartOnDeath;
 
     public bool HasFollowUpQuest;
 
     public QuestSO FollowUpQuest;
+
+
+    public SucceedQuestSO Success;
+    public FailQuestSO Failure;
 
 
     public enum QuestTypes
@@ -28,6 +33,16 @@ public abstract class QuestSO : ScriptableObject
     }
 
 
-    public abstract void CompleteQuest();
-    public abstract void FailQuest();
+    public void CompleteQuest()
+    {
+        if(Success != null)
+        Success.OnSucceed(this);
+    }
+    public void FailQuest()
+    {
+        if(Failure != null)
+        Failure.OnFail(this);
+    }
+
+    public abstract void OnStartQuest();
 }
