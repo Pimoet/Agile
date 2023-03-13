@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Quests/KillQuest")]
+[CreateAssetMenu(menuName ="QuestInfo/Quests/KillQuest")]
 public class SlayQuest : QuestSO
 {
     public string EnemyName; //replace with Enemy ScriptableObject or logic for the name

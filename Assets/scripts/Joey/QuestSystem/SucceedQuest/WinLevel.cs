@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Quests/SuccessConditions/Win")]
+[CreateAssetMenu(menuName ="QuestInfo/SuccessConditions/Win")]
 public class WinLevel : SucceedQuestSO
 {
     public override void OnSucceed(QuestSO data)
