@@ -5,14 +5,18 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     #region variables
-    public GameObject normalZombie;
-    public GameObject fastZombie2;
-    public GameObject tankZombie;
+    [SerializeField] private GameObject normalZombie;
+    [SerializeField] private GameObject fastZombie2;
+    [SerializeField] private GameObject tankZombie;
 
-    public int amount;
+    [SerializeField] private int maxEnemyCount;
+    [SerializeField] private int minEnemyCount;
+    [SerializeField] private int EnemyCount;
     private Vector3 spawnPoint;
     private float camMin;
     private float camMax;
+
+    bool spawning = false;
     #endregion
 
     void Start()
@@ -22,7 +26,7 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        if (amount != 10)
+        if (EnemyCount <= minEnemyCount && EnemyCount <= maxEnemyCount)
         {
             InvokeRepeating("spawnEnemy", 1f, 2f);
         }
@@ -33,6 +37,7 @@ public class EnemySpawn : MonoBehaviour
         spawnPoint.y = Random.Range(camMin, camMax);
         spawnPoint.z = 0;
         Instantiate(normalZombie, spawnPoint, Quaternion.identity);
+        EnemyCount++;
         CancelInvoke();
     }
 }
