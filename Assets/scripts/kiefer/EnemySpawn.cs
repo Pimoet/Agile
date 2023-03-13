@@ -9,6 +9,8 @@ public class EnemySpawn : MonoBehaviour
     public GameObject fastZombie2;
     public GameObject tankZombie;
 
+    public GameObject[] enemy;
+
     public int amount;
     private Vector3 spawnPoint;
     private float camMin;
@@ -18,8 +20,8 @@ public class EnemySpawn : MonoBehaviour
 
     void Start()
     {
-        camMin = Camera.main.orthograp$$anonymous$$cSize;
-        camMax = Camera.main.orthograp$$anonymous$$cSize + 2;
+        camMin = Camera.main.orthographicSize;
+        camMax = Camera.main.orthographicSize + 2;
     }
     void Update()
     {
