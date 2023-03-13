@@ -9,14 +9,16 @@ public class Movement : MonoBehaviour
     
     Rigidbody2D RB;
 
+    [SerializeField]
+    private PlayerData _PlayerData;
 
-    public float moveSpeed = 5f;
 
     [HideInInspector]
     public Vector2 moveDir;
 
     void Start()
     {
+        //_PlayerData.MovementSpeed 
         RB = GetComponent<Rigidbody2D>();
     }
 
@@ -29,6 +31,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        RB.velocity += moveDir.normalized * moveSpeed * Time.fixedDeltaTime;
+        RB.velocity += moveDir.normalized * _PlayerData.MovementSpeed * Time.fixedDeltaTime;
     }
 }

@@ -19,27 +19,6 @@ public class Bullet : MonoBehaviour
     public float LifeTime;
 
     public int HomingRange;
-
-    public GameObject FindClosestEnemy()
-    {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closest = null;
-        float distance = HomingRange;
-        Vector3 position = transform.position;
-        foreach (GameObject go in gos)
-        {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
-            {
-                closest = go;
-                distance = curDistance;
-            }
-        }
-        return closest;
-    }
-
     private void Start()
     {
 
@@ -62,11 +41,40 @@ public class Bullet : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = q;
 
-            RB.AddForce(transform.right * projectileSpeed, ForceMode2D.Impulse);
+            RB.AddForce(transform.right  * projectileSpeed, ForceMode2D.Impulse);
         }
         else
         {
-            RB.AddForce(transform.right * projectileSpeed, ForceMode2D.Impulse);
+            RB.AddForce(transform.right  * projectileSpeed, ForceMode2D.Impulse);
         }
     }
+
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        float distance = HomingRange;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

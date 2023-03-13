@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   PlayerName: Ira Apostela
-  PlayerPrefab: {fileID: 0}
+  PlayerPrefab: {fileID: 361633596105305093, guid: 6434ab5c0bcda764389b9e92356d5a89, type: 3}
   MaxHealth: 100
   CurrentHealth: 100
-  MovementSpeed: 20
-  DashSpeed: 10
+  MovementSpeed: 30
   QuestList:
   - {fileID: 11400000, guid: a390fe819112e264aa17baf0817a31ae, type: 2}
