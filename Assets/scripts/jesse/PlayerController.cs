@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
+    public PlayerData playerData;
+
+    [Range(0f, 1f)]
+    [SerializeField] private float cameraAngle;
 
     private Rigidbody2D rb;
 
@@ -21,11 +24,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(horizontal, vertical);
-        rb.AddForce(movement * speed);
+        Vector2 movement = new Vector2(horizontal, vertical * cameraAngle);
+        rb.velocity = movement * playerData.MovementSpeed * playerData.MovementSpeedModifier;
         
     }
 }

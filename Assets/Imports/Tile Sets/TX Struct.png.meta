@@ -1375,7 +1375,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TX Struct_51: 1892497
       TX Struct_28: -153260576
       TX Struct_45: 312192860
       TX Struct_7: 962008464
@@ -1416,8 +1415,8 @@ TextureImporter:
       TX Struct_55: 1363387344
       TX Struct_4: 1171252294
       TX Struct_9: 1828726439
-      TX Struct_34: -874825449
       TX Struct_43: -1094188877
+      TX Struct_34: -874825449
       TX Struct_0: 1766556774
       TX Struct_35: -1094046080
       TX Struct_32: -628279151
@@ -1431,6 +1430,7 @@ TextureImporter:
       TX Struct_3: -1342100753
       TX Struct_38: 1225890573
       TX Struct_19: -2020124852
+      TX Struct_51: 1892497
       TX Struct_2: 2063079940
       TX Struct_41: -734738726
       TX Struct_47: 962214663
