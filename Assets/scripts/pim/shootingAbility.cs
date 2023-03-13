@@ -5,7 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu]
 
-public class shootingAbility : Abillity
+public class ShootingAbility : Abillity
 {
     [SerializeField]
     private float damage;
