@@ -12,7 +12,9 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private int maxEnemyCount;
     [SerializeField] private int minEnemyCount;
     [SerializeField] private int EnemyCount;
+
     private Vector3 spawnPoint;
+
     private float camMin;
     private float camMax;
 
@@ -26,9 +28,17 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        if (EnemyCount <= minEnemyCount && EnemyCount <= maxEnemyCount)
+        if (EnemyCount <= maxEnemyCount && spawning)
         {
             InvokeRepeating("spawnEnemy", 1f, 2f);
+        }
+
+        if (EnemyCount <= minEnemyCount)
+        {
+            StartCoroutine(waitfortime(5));
+            spawning = true;
+            StartCoroutine(waitfortime(10));
+            spawning = false;
         }
     }
     void spawnEnemy()
@@ -39,5 +49,9 @@ public class EnemySpawn : MonoBehaviour
         Instantiate(normalZombie, spawnPoint, Quaternion.identity);
         EnemyCount++;
         CancelInvoke();
+    }
+    IEnumerator waitfortime(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 }
