@@ -9,7 +9,7 @@ public class ProximityEventHandler : MonoBehaviour
     [SerializeField] private string tag;
     [SerializeField] private List<GameObject> additionalTargets;
 
-    private void OnTriggerEnter(Collider hit)
+    private void OnTriggerEnter2D(Collider hit)
     {
         if (hit.gameObject.CompareTag(tag))
         {
