@@ -30,10 +30,8 @@ namespace Pathfinding {
         private void Start()
         {
 			player = GameObject.Find("Player");
-            while (target = null)
-            {
-				target = player.transform;
-            }
+			target = player.transform;
+            
         }
 
         void OnDisable () {
