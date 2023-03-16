@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(horizontal, vertical * cameraAngle);
-        rb.velocity = movement * playerData.MovementSpeed * playerData.MovementSpeedModifier;
+        Vector2 movement = new Vector2(horizontal, vertical).normalized;
+        rb.velocity = new Vector2(horizontal, vertical * cameraAngle) * playerData.MovementSpeed * playerData.MovementSpeedModifier;
         
     }
 }
