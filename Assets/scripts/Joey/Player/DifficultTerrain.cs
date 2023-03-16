@@ -9,11 +9,25 @@ public class DifficultTerrain : ProximityEvent
     public float SpeedReduction;
     public override void Activate(GameObject self, GameObject target)
     {
-        target.GetComponent<PlayerController>().playerData.MovementSpeedModifier -= SpeedReduction;
+        if (target.CompareTag("Player"))
+        {
+            target.GetComponent<PlayerController>().playerData.MovementSpeedModifier -= SpeedReduction;
+        }
+        else if (target.CompareTag("Enemy"))
+        {
+            target.GetComponent<EnemyDataHolder>().movementSpeedModifier -= SpeedReduction;
+        }
     }
 
     public override void Deactivate(GameObject self, GameObject target)
     {
-        target.GetComponent<PlayerController>().playerData.MovementSpeedModifier += SpeedReduction;
+        if (target.CompareTag("Player"))
+        {
+            target.GetComponent<PlayerController>().playerData.MovementSpeedModifier += SpeedReduction;
+        }
+        else if (target.CompareTag("Enemy"))
+        {
+            target.GetComponent<EnemyDataHolder>().movementSpeedModifier += SpeedReduction;
+        }
     }
 }

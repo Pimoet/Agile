@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086414370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.86, z: -10}
+  m_LocalPosition: {x: 0, y: 1.16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,6 +313,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7683972827812541198, guid: ecb3310ac60de6344a2b877aa2bd238d, type: 3}
+      propertyPath: tags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683972827812541198, guid: ecb3310ac60de6344a2b877aa2bd238d, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683972827812541198, guid: ecb3310ac60de6344a2b877aa2bd238d, type: 3}
+      propertyPath: tags.Array.data[1]
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7683972828531023299, guid: ecb3310ac60de6344a2b877aa2bd238d, type: 3}
       propertyPath: m_Name
       value: GridSystem

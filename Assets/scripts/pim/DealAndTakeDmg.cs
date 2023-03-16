@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DealAndTakeDmg : MonoBehaviour
 {
+    private EnemyDataHolder data;
     float hp = 1f;
     float damage = 5f;
     float damagecooldown = 1f;
