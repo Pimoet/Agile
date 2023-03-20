@@ -9,26 +9,35 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private GameObject fastZombie2;
     [SerializeField] private GameObject tankZombie;
 
+    [SerializeField] private GameObject camera;
+
     [SerializeField] private int maxEnemyCount;
     [SerializeField] private int minEnemyCount;
-    [SerializeField] private int EnemyCount;
+    private int EnemyCount;
+
     [SerializeField] private int spawnAmount;
 
-    private Vector3 spawnPoint;
+    private Vector3 enemySpawn;
 
-    private float camMin;
-    private float camMax;
+    float cameraXMax = 8.9f;
+    float cameraXMin = -8.9f;
+    float cameraYMax = 5f;
+    float cameraYMin = -5f;
+
+    [SerializeField] float spawnXMax;
+    [SerializeField] float spawnXMin;
+    [SerializeField] float spawnYMax;
+    [SerializeField] float spawnYMin;
+
 
     bool spawning = false;
+    bool needForSpawn = false;
     #endregion
 
-    void Start()
-    {
-        camMin = Camera.main.orthographicSize;
-        camMax = Camera.main.orthographicSize + 2;
-    }
+    
     void Update()
     {
+        updateCameraPos();
         if (spawning)
         {
             for (int i = 0; i < spawnAmount; i++)
@@ -37,10 +46,10 @@ public class EnemySpawn : MonoBehaviour
             }
         }
 
-        if (EnemyCount <= minEnemyCount && !spawning)
+        if (EnemyCount <= minEnemyCount && !spawning || needForSpawn)
         {
-            StartCoroutine(waitfortime(5));
             spawning = true;
+            needForSpawn = false;
         }
         else if (EnemyCount >= minEnemyCount && EnemyCount <= maxEnemyCount && spawning)
         {
@@ -52,13 +61,45 @@ public class EnemySpawn : MonoBehaviour
     {
         if (EnemyCount <= maxEnemyCount)
         {
-            spawnPoint.x = Random.Range(camMin, camMax);
-            spawnPoint.y = Random.Range(camMin, camMax);
-            spawnPoint.z = 0;
-            Instantiate(normalZombie, spawnPoint, Quaternion.identity);
+            enemySpawn = new Vector3(Random.Range(spawnXMin, spawnXMax + 1), Random.Range(spawnYMin, spawnYMax + 1), 0);
+
+            Instantiate(normalZombie, checkSpawnPos(enemySpawn), Quaternion.identity);
             EnemyCount++;
         }
     }
+
+    Vector3 checkSpawnPos(Vector3 needsChecking)
+    {
+        int checks = 0;
+        bool hasChecked = false;
+        while (hasChecked == false) {
+
+            if (needsChecking.x > cameraXMin & needsChecking.x < cameraXMax)
+            {
+                checks++;
+            }
+            if (needsChecking.y > cameraYMin & needsChecking.y < cameraYMax)
+            {
+                checks++;
+            }
+
+            if (checks == 2 || checks == 1)
+            {
+                needsChecking = new Vector3(Random.Range(spawnXMin, spawnXMax + 1), Random.Range(spawnYMin, spawnYMax + 1), 0);
+            }
+            else
+            {
+                hasChecked = true;
+            }
+        }
+        return needsChecking;
+    }
+
+    void updateCameraPos()
+    {
+        
+    }
+
     IEnumerator waitfortime(int seconds)
     {
         yield return new WaitForSeconds(seconds);
