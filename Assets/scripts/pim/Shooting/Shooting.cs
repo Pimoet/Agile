@@ -9,7 +9,8 @@ using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField]
+    public List<GunsSO> guns = new List<GunsSO>();
+
     private GunsSO heldGun;
     public KeyCode Shootkey;
     
@@ -25,9 +26,12 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     private GameObject groundGun;
 
-    
+    public float ammo;
+
+
     private void Start()
     {
+        heldGun = guns[0];
         oldGun = heldGun.name;
     }
 
@@ -35,10 +39,10 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(heldGun);
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-           // heldGun = 
+            heldGun = guns[1];
         }
         if (oldGun != currentGun)
         {
@@ -47,26 +51,16 @@ public class Shooting : MonoBehaviour
 
         currentGun = heldGun.name;
 
-        if (Input.GetKeyDown(Shootkey) && shot == false && heldGun.Automatic == false)
+        if (Input.GetKeyDown(Shootkey) && shot == false && heldGun.Automatic == false && ammo > 0)
         {
             Shoot();
         }
-        if (Input.GetKey(Shootkey) && shot == false && heldGun.Automatic == true)
+        if (Input.GetKey(Shootkey) && shot == false && heldGun.Automatic == true && ammo > 0)
         {
             Shoot();
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "FloorObject")
-        {
-            
-            if(collision.gameObject.name == "fastGun")
-            {
-                
-            }
-        }
+        Reload();
     }
     void shotReset()
     {
@@ -76,11 +70,30 @@ public class Shooting : MonoBehaviour
     void OnPickup()
     {
         HeldGunDamage = heldGun.damage;
+        MaxAmmo();
     }
     void Shoot()
     {
+        ammo--;
+        Debug.Log(ammo);
         shot = true;
         Invoke("shotReset", heldGun.fireRate);
         Instantiate(bullet, gun.transform.position, Quaternion.identity);
+
+
+    }
+
+    void MaxAmmo()
+    {
+        ammo = heldGun.magazineSize;
+    }
+
+    void Reload()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && heldGun.Automatic == false)
+        {
+            MaxAmmo();
+        }
+
     }
 }

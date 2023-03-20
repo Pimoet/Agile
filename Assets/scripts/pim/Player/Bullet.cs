@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame      
     void Update()
     {
-        Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
+        //Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
 
     }
 }
