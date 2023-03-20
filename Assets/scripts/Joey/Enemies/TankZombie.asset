@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TankZombie
   m_EditorClassIdentifier: 
   EnemyName: Tank_Zombie
-  EnemyPrefab: {fileID: 6219229354923419019, guid: 3a290af9effe560489c8c426e87992c7, type: 3}
+  EnemyPrefab: {fileID: 6219229354923419019, guid: 7b86c153a67954e46abdae2c98cdc6b6, type: 3}
   maxHealth: 300
   movementSpeed: 2
   dammage: 10

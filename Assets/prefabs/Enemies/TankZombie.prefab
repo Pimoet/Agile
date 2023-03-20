@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6219229354923419123}
   - component: {fileID: 1696031440709707390}
   m_Layer: 0
-  m_Name: NormalEnemy
+  m_Name: TankZombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3ee722250da984996f1b7ae58524fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 593610a5d6d4cf64c93ce078fc4c4e33, type: 2}
+  data: {fileID: 11400000, guid: 1ffba5ddd20302d45b28738738691660, type: 2}
   target: {fileID: 0}
   maxHealth: 0
   currentHealth: 0

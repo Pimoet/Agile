@@ -14,8 +14,5 @@ public class SpawnerData : ScriptableObject
     public int spawnFastAmount;
     public int spawnTankAmount;
 
-    public float spawnXMaxConst;
-    public float spawnXMinConst;
-    public float spawnYMaxConst;
-    public float spawnYMinConst;
+    public float spawnRadius;
 }

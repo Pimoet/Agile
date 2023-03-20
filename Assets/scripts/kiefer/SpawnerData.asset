@@ -21,7 +21,4 @@ MonoBehaviour:
   spawnTotalAmount: 5
   spawnFastAmount: 0
   spawnTankAmount: 0
-  spawnXMaxConst: 10
-  spawnXMinConst: -10
-  spawnYMaxConst: 10
-  spawnYMinConst: -10
+  spawnRadius: 10

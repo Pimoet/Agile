@@ -18,15 +18,15 @@ public class EnemySpawn : MonoBehaviour
     float cameraYMaxConst = 5f;
     float cameraYMinConst = -5f;
 
-    float cameraXMax => camera.transform.position.x + cameraXMaxConst;
-    float cameraXMin => camera.transform.position.x - cameraXMinConst;
-    float cameraYMax => camera.transform.position.x + cameraYMaxConst;
-    float cameraYMin => camera.transform.position.x - cameraYMinConst;
+    float cameraXMax;
+    float cameraXMin;
+    float cameraYMax;
+    float cameraYMin;
 
-    float spawnXMax => camera.transform.position.x + spawnXMax;
-    float spawnXMin => camera.transform.position.x - spawnXMin;
-    float spawnYMax => camera.transform.position.x + spawnYMax;
-    float spawnYMin => camera.transform.position.x - spawnYMin;
+    float spawnXMax;
+    float spawnXMin;
+    float spawnYMax;
+    float spawnYMin;
 
     bool spawning = false;
     bool needForSpawn = false;
@@ -38,6 +38,7 @@ public class EnemySpawn : MonoBehaviour
 
     void Update()
     {
+        updateCameraPos();
         if (spawning)
         {
             for (int i = 0; i < data.spawnTotalAmount; i++)
@@ -81,6 +82,19 @@ public class EnemySpawn : MonoBehaviour
                 EnemyCount++;
             }
         }
+    }
+
+    void updateCameraPos()
+    {
+        cameraXMax = camera.transform.position.x + cameraXMaxConst;
+        cameraXMin = camera.transform.position.x - cameraXMinConst;
+        cameraYMax = camera.transform.position.x + cameraYMaxConst;
+        cameraYMin = camera.transform.position.x - cameraYMinConst;
+
+        spawnXMax = camera.transform.position.x + data.spawnRadius;
+        spawnXMin = camera.transform.position.x - data.spawnRadius;
+        spawnYMax = camera.transform.position.x + data.spawnRadius;
+        spawnYMin = camera.transform.position.x - data.spawnRadius;
     }
 
     Vector3 checkSpawnPos(Vector3 needsChecking)
