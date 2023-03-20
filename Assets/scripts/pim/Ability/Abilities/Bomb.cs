@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Bullet : MonoBehaviour
+public class Bomb: MonoBehaviour
 {
     public float projectileSpeed;
 
@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
     public int HomingRange;
     private void Start()
     {
+        Destroy(gameObject, LifeTime);
 
         RB = GetComponent<Rigidbody2D>();
 
@@ -33,7 +34,6 @@ public class Bullet : MonoBehaviour
             RB.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
             float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-            Destroy(gameObject, LifeTime);
 
 
             Vector3 vectorToTarget = FindClosestEnemy().transform.position - transform.position;

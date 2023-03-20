@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 519ff085a4672e047b6e5f425a92726b, type: 3}
-  m_Name: New Shooting Ability
+  m_Script: {fileID: 11500000, guid: 17ea636b6802bf848958d3ae62b6793d, type: 3}
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  name: Bomb
-  cooldownTime: 1
-  activeTime: 0.1
+  name: Pistol
   damage: 1
-  Bomb: {fileID: 712111293516935166, guid: a0829a045a0961e4b8a6b7faa6c0102e, type: 3}
+  fireRate: 0.5
+  magazineSize: 12
+  reloadTime: 3
+  Automatic: 0
+  gunSprite: {fileID: 0}
