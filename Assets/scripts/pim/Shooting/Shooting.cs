@@ -23,8 +23,6 @@ public class Shooting : MonoBehaviour
     private GameObject bullet;
     [SerializeField]
     private GameObject gun;
-    [SerializeField]
-    private GameObject groundGun;
 
     public float ammo;
 
@@ -75,12 +73,10 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         ammo--;
-        Debug.Log(ammo);
         shot = true;
         Invoke("shotReset", heldGun.fireRate);
         Instantiate(bullet, gun.transform.position, Quaternion.identity);
-
-
+        Debug.Log(ammo);
     }
 
     void MaxAmmo()
@@ -90,10 +86,9 @@ public class Shooting : MonoBehaviour
 
     void Reload()
     {
-        if (Input.GetKeyDown(KeyCode.R) && heldGun.Automatic == false)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             MaxAmmo();
         }
-
     }
 }
