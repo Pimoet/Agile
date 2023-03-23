@@ -5,18 +5,32 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     #region variables
-    [SerializeField] private SpawnerData data;
-
     private GameObject camera;
 
-    private int EnemyCount;
+    public List<EnemyData> enemies;
 
-    private Vector3 enemySpawn;
+    public float spawnRadius;
+
+    public int maxEnemyCount;
+    public int minEnemyCount;
+
+    public int spawnTotalAmount;
+    public int spawnFastAmount;
+    public int spawnTankAmount;
+
+    public int tankEnemyCount; 
+    public int fastEnemyCount;
+    public int normalEnemyCount;
+    public int totalEnemyCount;
+
+    public int needForSpawnAmount = 0;
 
     float cameraXMaxConst = 8.9f;
     float cameraXMinConst = -8.9f;
     float cameraYMaxConst = 5f;
     float cameraYMinConst = -5f;
+
+    bool spawning = false;
 
     float cameraXMax;
     float cameraXMin;
@@ -28,104 +42,101 @@ public class EnemySpawn : MonoBehaviour
     float spawnYMax;
     float spawnYMin;
 
-    bool spawning = false;
-    bool needForSpawn = false;
     #endregion
     private void Start()
     {
         camera = GameObject.Find("Main Camera");
     }
-
     void Update()
     {
-        updateCameraPos();
+        ChangeCameraPos();
         if (spawning)
         {
-            for (int i = 0; i < data.spawnTotalAmount; i++)
+            for (int i = 0; i < spawnTotalAmount; i++)
             {
-                spawnEnemy(data.enemies);
+                spawnEnemy();
             }
         }
 
-        if (EnemyCount <= data.minEnemyCount && !spawning || needForSpawn)
+        if (totalEnemyCount <= minEnemyCount && !spawning || needForSpawnAmount > 0)
         {
             spawning = true;
-            needForSpawn = false;
+            if (needForSpawnAmount > 0)
+            {
+                needForSpawnAmount--;
+            }
         }
-        else if (EnemyCount >= data.minEnemyCount && EnemyCount <= data.maxEnemyCount && spawning)
+        else if (totalEnemyCount >= minEnemyCount && totalEnemyCount <= maxEnemyCount && spawning)
         {
-            StartCoroutine(waitfortime(10));
             spawning = false;
         }
     }
-    void spawnEnemy(List<EnemyData> enemies)
+    void spawnEnemy()
     {
-        if (EnemyCount <= data.maxEnemyCount)
+        if (totalEnemyCount <= maxEnemyCount)
         {
-            enemySpawn = new Vector3(Random.Range(spawnXMin, spawnXMax + 1), Random.Range(spawnYMin, spawnYMax + 1), 0);
-
-            if (data.spawnTankAmount > 0)
+            if (spawnTankAmount > 0)
             {
-                Instantiate(enemies[2].EnemyPrefab, checkSpawnPos(enemySpawn), Quaternion.identity);
-                data.spawnTankAmount--;
-                EnemyCount++;
+                Instantiate(enemies[2].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                spawnTankAmount--;
+                totalEnemyCount++;
+                tankEnemyCount++;
             }
-            else if (data.spawnFastAmount > 0)
+            else if (spawnFastAmount > 0)
             {
-                Instantiate(enemies[1].EnemyPrefab, checkSpawnPos(enemySpawn), Quaternion.identity);
-                data.spawnFastAmount--;
-                EnemyCount++;
+                Instantiate(enemies[1].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                spawnFastAmount--;
+                totalEnemyCount++;
+                fastEnemyCount++;
             }
             else
             {
-                Instantiate(enemies[0].EnemyPrefab, checkSpawnPos(enemySpawn), Quaternion.identity);
-                EnemyCount++;
+                Instantiate(enemies[0].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                totalEnemyCount++;
+                normalEnemyCount++;
             }
         }
     }
-
-    void updateCameraPos()
+    void ChangeCameraPos()
     {
         cameraXMax = camera.transform.position.x + cameraXMaxConst;
-        cameraXMin = camera.transform.position.x - cameraXMinConst;
+        cameraXMin = camera.transform.position.x + cameraXMinConst;
         cameraYMax = camera.transform.position.x + cameraYMaxConst;
-        cameraYMin = camera.transform.position.x - cameraYMinConst;
+        cameraYMin = camera.transform.position.x + cameraYMinConst;
 
-        spawnXMax = camera.transform.position.x + data.spawnRadius;
-        spawnXMin = camera.transform.position.x - data.spawnRadius;
-        spawnYMax = camera.transform.position.x + data.spawnRadius;
-        spawnYMin = camera.transform.position.x - data.spawnRadius;
+        spawnXMax = camera.transform.position.x + spawnRadius;
+        spawnXMin = camera.transform.position.x - spawnRadius;
+        spawnYMax = camera.transform.position.x + spawnRadius;
+        spawnYMin = camera.transform.position.x - spawnRadius;
     }
-
-    Vector3 checkSpawnPos(Vector3 needsChecking)
+    Vector3 checkSpawnPos()
     {
+        Vector3 needsChecking = new Vector3(Random.Range(spawnXMin, spawnXMax + 1), Random.Range(spawnYMin, spawnYMax + 1), 0);
+
         bool hasChecked = false;
         while (hasChecked == false) {
-            int checks = 0;
+            int inCamera = 0;
+            float X = needsChecking.x;
+            float Y = needsChecking.y;
             
-            if (needsChecking.x > cameraXMin && needsChecking.x < cameraXMax)
+            if (X > cameraXMin && X < cameraXMax)
             {
-                checks++;
+                inCamera += 1;
             }
-            if (needsChecking.y > cameraYMin && needsChecking.y < cameraYMax)
+            if (Y > cameraYMin && Y < cameraYMax)
             {
-                checks++;
+                inCamera += 1;
             }
 
-            if (checks > 0)
-            {
-                needsChecking = new Vector3(Random.Range(spawnXMin, spawnXMax + 1), Random.Range(spawnYMin, spawnYMax + 1), 0);
-            }
-            else
+            if (inCamera == 0)
             {
                 hasChecked = true;
             }
+            else
+            {
+                needsChecking = new Vector3(Random.Range(spawnXMin, spawnXMax + 1), Random.Range(spawnYMin, spawnYMax + 1), 0);
+            }
         }
         return needsChecking;
-    }
-
-    IEnumerator waitfortime(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
     }
 }
