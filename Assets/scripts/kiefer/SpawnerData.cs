@@ -13,13 +13,14 @@ public class SpawnerData : ScriptableObject
     public int minEnemyCount;
 
     public int spawnTotalAmount;
-    public int spawnFastAmount;
-    public int spawnTankAmount;
 
-    public int tankEnemyCount;
-    public int fastEnemyCount;
-    public int normalEnemyCount;
-    public int totalEnemyCount;
+    public int spawnFastAmount = 0;
+    public int spawnTankAmount = 0;
 
-    public int needForSpawnAmount;
+    public int tankEnemyCount = 0;
+    public int fastEnemyCount = 0;
+    public int normalEnemyCount = 0;
+    public int totalEnemyCount = 0;
+
+    public int needForSpawnAmount = 0;
 }
