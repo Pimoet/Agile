@@ -5,25 +5,9 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     #region variables
+    public SpawnerData data;
+
     private GameObject camera;
-
-    public List<EnemyData> enemies;
-
-    public float spawnRadius;
-
-    public int maxEnemyCount;
-    public int minEnemyCount;
-
-    public int spawnTotalAmount;
-    public int spawnFastAmount;
-    public int spawnTankAmount;
-
-    public int tankEnemyCount; 
-    public int fastEnemyCount;
-    public int normalEnemyCount;
-    public int totalEnemyCount;
-
-    public int needForSpawnAmount = 0;
 
     float cameraXMaxConst = 8.9f;
     float cameraXMinConst = -8.9f;
@@ -49,65 +33,65 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        ChangeCameraPos();
+        UpdateVariables();
         if (spawning)
         {
-            for (int i = 0; i < spawnTotalAmount; i++)
+            for (int i = 0; i < data.spawnTotalAmount; i++)
             {
                 spawnEnemy();
             }
         }
 
-        if (totalEnemyCount <= minEnemyCount && !spawning || needForSpawnAmount > 0)
+        if (data.totalEnemyCount <= data.minEnemyCount && !spawning || data.needForSpawnAmount > 0)
         {
             spawning = true;
-            if (needForSpawnAmount > 0)
+            if (data.needForSpawnAmount > 0)
             {
-                needForSpawnAmount--;
+                data.needForSpawnAmount--;
             }
         }
-        else if (totalEnemyCount >= minEnemyCount && totalEnemyCount <= maxEnemyCount && spawning)
+        else if (data.totalEnemyCount >= data.minEnemyCount && data.totalEnemyCount <= data.maxEnemyCount && spawning)
         {
             spawning = false;
         }
     }
     void spawnEnemy()
     {
-        if (totalEnemyCount <= maxEnemyCount)
+        if (data.totalEnemyCount <= data.maxEnemyCount)
         {
-            if (spawnTankAmount > 0)
+            if (data.spawnTankAmount > 0)
             {
-                Instantiate(enemies[2].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
-                spawnTankAmount--;
-                totalEnemyCount++;
-                tankEnemyCount++;
+                Instantiate(data.enemies[2].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                data.spawnTankAmount--;
+                data.totalEnemyCount++;
+                data.tankEnemyCount++;
             }
-            else if (spawnFastAmount > 0)
+            else if (data.spawnFastAmount > 0)
             {
-                Instantiate(enemies[1].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
-                spawnFastAmount--;
-                totalEnemyCount++;
-                fastEnemyCount++;
+                Instantiate(data.enemies[1].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                data.spawnFastAmount--;
+                data.totalEnemyCount++;
+                data.fastEnemyCount++;
             }
             else
             {
-                Instantiate(enemies[0].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
-                totalEnemyCount++;
-                normalEnemyCount++;
+                Instantiate(data.enemies[0].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                data.totalEnemyCount++;
+                data.normalEnemyCount++;
             }
         }
     }
-    void ChangeCameraPos()
+    void UpdateVariables()
     {
         cameraXMax = camera.transform.position.x + cameraXMaxConst;
         cameraXMin = camera.transform.position.x + cameraXMinConst;
         cameraYMax = camera.transform.position.x + cameraYMaxConst;
         cameraYMin = camera.transform.position.x + cameraYMinConst;
 
-        spawnXMax = camera.transform.position.x + spawnRadius;
-        spawnXMin = camera.transform.position.x - spawnRadius;
-        spawnYMax = camera.transform.position.x + spawnRadius;
-        spawnYMin = camera.transform.position.x - spawnRadius;
+        spawnXMax = camera.transform.position.x + data.spawnRadius;
+        spawnXMin = camera.transform.position.x - data.spawnRadius;
+        spawnYMax = camera.transform.position.x + data.spawnRadius;
+        spawnYMin = camera.transform.position.x - data.spawnRadius;
     }
     Vector3 checkSpawnPos()
     {
