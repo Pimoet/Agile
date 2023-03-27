@@ -13,7 +13,7 @@ public class Dash : Abillity
         PlayerController Movement = parent.GetComponent<PlayerController>();
         Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
 
-        rb.velocity = Movement.dir.normalized * dashVelocity;
+        rb.velocity += Movement.dir * dashVelocity;
         Debug.Log(rb.velocity.sqrMagnitude);
     }
 

@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        dir = new Vector2(horizontal, vertical).normalized;
-        rb.velocity = new Vector2(horizontal, vertical * cameraAngle) * playerData.MovementSpeed * playerData.MovementSpeedModifier;
+        dir = new Vector2(horizontal, vertical * cameraAngle) * playerData.MovementSpeed * playerData.MovementSpeedModifier;
+        rb.velocity += dir;
         
     }
 }
