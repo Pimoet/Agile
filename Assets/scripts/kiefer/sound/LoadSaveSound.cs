@@ -29,15 +29,11 @@ public class LoadSaveSound : MonoBehaviour
         PlayerPrefs.SetFloat(MasterVolumePref, data.masterVolume);
         PlayerPrefs.SetFloat(SFXVolumePref, data.SFXVolume);
         PlayerPrefs.SetFloat(MusicVolumePref, data.musicVolume);
-
     }
     void LoadSoundSettings()
     {
         if (firstPlayInt == 0)
         {
-            data.masterVolume = 1f;
-            data.SFXVolume = 1f;
-            data.musicVolume = 1f;
             PlayerPrefs.SetInt(FirstPlay, +1);
             PlayerPrefs.SetFloat(MasterVolumePref, data.masterVolume);
             PlayerPrefs.SetFloat(SFXVolumePref, data.SFXVolume);

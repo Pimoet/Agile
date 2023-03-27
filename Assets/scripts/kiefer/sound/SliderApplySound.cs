@@ -4,10 +4,9 @@ using UnityEngine.UI;
 public class SliderApplySound : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    [SerializeField] GameObject audioSource;
+    [SerializeField] GameObject[] audioSource;
     [SerializeField] bool SFX, Master, Music;
-
-    public bool change;
+    [SerializeField] int SFXNumber; //0 = music
 
     public AudioData data;
     void Awake()
@@ -28,26 +27,25 @@ public class SliderApplySound : MonoBehaviour
 
     void Update()
     {
-        if (change)
+        
+        if (SFX && !Master && !Music)
         {
-            if (SFX && !Master && !Music)
-            {
-                data.SFXVolume = slider.value;
-                EditSound();
-            }
-            else if (!SFX && Master && !Music)
-            {
-                data.masterVolume = slider.value;
-            }
-            else if (!SFX && !Master && Music)
-            {
-                data.musicVolume = slider.value;
-                EditSound();
-            }
+            data.SFXVolume = slider.value;
+            EditSound();
         }
+        else if (!SFX && Master && !Music)
+        {
+            data.masterVolume = slider.value;
+        }
+        else if (!SFX && !Master && Music)
+        {
+            data.musicVolume = slider.value;
+            EditSound();
+        }
+        
     }
     void EditSound()
     {
-        audioSource.GetComponent<ApplySound>().EditVolume();
+        audioSource[SFXNumber].GetComponent<ApplySound>().EditVolume();
     }
 }
