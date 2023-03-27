@@ -102,7 +102,6 @@ public class Shooting : MonoBehaviour
 
     void MaxAmmo()
     {
-        Debug.Log("MaxAmmo");
         ammo = heldGun.magazineSize;
     }
 

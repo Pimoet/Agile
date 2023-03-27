@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [HideInInspector]
     public Vector2 dir;
     private void Start()
     {
