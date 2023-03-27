@@ -974,6 +974,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd554c07857f4524c9d118c5d9b9da9c, type: 2}
   - {fileID: 11400000, guid: 7055c641b4dbd6049a18248b611fe153, type: 2}
   Shootkey: 113
+  PickUpKey: 99
   HeldGunDamage: 1
   bullet: {fileID: 2010046431}
   gun: {fileID: 590129799}

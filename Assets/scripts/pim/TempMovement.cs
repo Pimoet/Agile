@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class Movement : MonoBehaviour
+public class TempMovement : MonoBehaviour
 {
     
     Rigidbody2D RB;

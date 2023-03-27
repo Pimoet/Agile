@@ -13,6 +13,7 @@ public class Shooting : MonoBehaviour
 
     private GunsSO heldGun;
     public KeyCode Shootkey;
+    public KeyCode PickUpKey;
     
     public float HeldGunDamage; 
 
@@ -24,7 +25,7 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     private GameObject gun;
 
-    public float ammo;
+    private float ammo;
 
 
     private void Start()
@@ -37,7 +38,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(heldGun);
+        //Debug.Log(heldGun);
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             heldGun = guns[1];
@@ -60,6 +61,25 @@ public class Shooting : MonoBehaviour
 
         Reload();
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(PickUpKey))
+        {
+            if (collision.gameObject.name == "fastGun")
+            {
+                heldGun = guns[1];
+            }
+            if (collision.gameObject.name == "sniper")
+            {
+                heldGun = guns[2];
+            }
+            if (collision.gameObject.name == "pistol")
+            {
+                heldGun = guns[0];
+            }
+
+        }
+    }
     void shotReset()
     {
         shot = false;
@@ -69,6 +89,7 @@ public class Shooting : MonoBehaviour
     {
         HeldGunDamage = heldGun.damage;
         MaxAmmo();
+        oldGun = currentGun;
     }
     void Shoot()
     {
