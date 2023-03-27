@@ -24,6 +24,6 @@ MonoBehaviour:
   spawnTankAmount: 0
   tankEnemyCount: 0
   fastEnemyCount: 0
-  normalEnemyCount: 0
-  totalEnemyCount: 0
+  normalEnemyCount: 15
+  totalEnemyCount: 15
   needForSpawnAmount: 0
