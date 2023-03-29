@@ -3,7 +3,7 @@ using UnityEngine;
 public class ApplySound : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
-    [SerializeField] bool Music;
+    [SerializeField] bool Music, Master;
     public AudioData data;
     private float volume;
     void Start()
@@ -29,6 +29,6 @@ public class ApplySound : MonoBehaviour
 
     void SetAudio()
     {
-        audioSource.volume = volume;
+        audioSource.volume = volume;       
     }
 }
