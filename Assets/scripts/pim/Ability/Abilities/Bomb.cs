@@ -21,7 +21,7 @@ public class Bomb: MonoBehaviour
     public int HomingRange;
     private void Start()
     {
-        Destroy(gameObject, LifeTime);
+        Explode(LifeTime);
 
         RB = GetComponent<Rigidbody2D>();
 
@@ -71,10 +71,23 @@ public class Bomb: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Player")
+        if(collision.gameObject.tag != "Player")
+        {
+            Explode(0); 
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Explode(0);
+    }
+    void Explode(float explosionTime)
+    {
+        float timer = Time.time;
+        explosionTime =- timer;
+        Debug.Log(explosionTime);
+        if (explosionTime <= 0)
         {
             Destroy(gameObject);
         }
     }
-
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 361633596105305093, guid: 6434ab5c0bcda764389b9e92356d5a89, type: 3}
   MaxHealth: 100
   CurrentHealth: 100
-  MovementSpeed: 6
+  MovementSpeed: 1.4
   MovementSpeedModifier: 1
   QuestList:
   - {fileID: 11400000, guid: a390fe819112e264aa17baf0817a31ae, type: 2}

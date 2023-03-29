@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ea636b6802bf848958d3ae62b6793d, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
-  name: 
-  damage: 0
-  fireRate: 0
-  magazineSize: 0
-  reloadTime: 0
+  name: Sniper
+  damage: 50
+  fireRate: 2
+  magazineSize: 5
+  reloadTime: 2
   Automatic: 0
   gunSprite: {fileID: 0}

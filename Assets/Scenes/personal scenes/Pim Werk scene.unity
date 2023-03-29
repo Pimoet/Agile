@@ -973,12 +973,28 @@ MonoBehaviour:
   guns:
   - {fileID: 11400000, guid: cd554c07857f4524c9d118c5d9b9da9c, type: 2}
   - {fileID: 11400000, guid: 7055c641b4dbd6049a18248b611fe153, type: 2}
+  - {fileID: 11400000, guid: 3613e44d12d56ce4faa9a95582410a2c, type: 2}
   Shootkey: 113
   PickUpKey: 99
   HeldGunDamage: 1
   bullet: {fileID: 2010046431}
   gun: {fileID: 590129799}
-  ammo: 0
+--- !u!114 &1568599769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568599758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8fe76f4e20a8a4c9e635931e7d1c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAbility: {fileID: 11400000, guid: ddb6c6e73a618164e975882d833731d2, type: 2}
+  secondAbility: {fileID: 11400000, guid: e912b15afd6afdf40a0519676f35e10b, type: 2}
+  Ability1key: 32
+  Ability2key: 102
 --- !u!1 &1718287573
 GameObject:
   m_ObjectHideFlags: 0
