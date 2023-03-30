@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,8 +13,8 @@ public class SpawnerData : ScriptableObject
 
     public int spawnTotalAmount;
 
-    public int spawnFastAmount = 0;
     public int spawnTankAmount = 0;
+    public int spawnFastAmount = 0;
 
     public int tankEnemyCount = 0;
     public int fastEnemyCount = 0;
