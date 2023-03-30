@@ -24,6 +24,8 @@ public class Shooting : MonoBehaviour
     private GameObject bullet;
     [SerializeField]
     private GameObject gun;
+    [SerializeField]
+    private GameObject gunSprite;
 
     private float ammo;
 
@@ -39,6 +41,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         //Debug.Log(heldGun);
+        gunSprite.GetComponent<SpriteRenderer>().sprite = heldGun.gunSprite;
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             heldGun = guns[1];

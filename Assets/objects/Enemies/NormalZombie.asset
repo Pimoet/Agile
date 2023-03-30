@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ea636b6802bf848958d3ae62b6793d, type: 3}
-  m_Name: Gun
+  m_Script: {fileID: 11500000, guid: 4d1872fbeb76a0c4badf6d1cb6891d2f, type: 3}
+  m_Name: NormalZombie
   m_EditorClassIdentifier: 
-  name: fastGun
-  damage: 2
-  fireRate: 0.1
-  magazineSize: 30
-  reloadTime: 1
-  Automatic: 1
-  gunSprite: {fileID: 0}
+  EnemyName: Normal_Zombie
+  EnemyPrefab: {fileID: 6219229354923419019, guid: 3a290af9effe560489c8c426e87992c7, type: 3}
+  maxHealth: 100
+  movementSpeed: 3
+  dammage: 10

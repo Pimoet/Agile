@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1872fbeb76a0c4badf6d1cb6891d2f, type: 3}
-  m_Name: FastZombie
+  m_Script: {fileID: 11500000, guid: 17ea636b6802bf848958d3ae62b6793d, type: 3}
+  m_Name: Gun
   m_EditorClassIdentifier: 
-  EnemyName: Fesht
-  EnemyPrefab: {fileID: 6219229354923419019, guid: 7719b3b4325806d4bb0d085fe0102673, type: 3}
-  maxHealth: 50
-  movementSpeed: 6
-  dammage: 10
+  name: fastGun
+  damage: 2
+  fireRate: 0.1
+  magazineSize: 30
+  reloadTime: 1
+  Automatic: 1
+  gunSprite: {fileID: -1453609279, guid: 9a0b0c8bb05b1e44c9f79ad3ef3e2f24, type: 3}

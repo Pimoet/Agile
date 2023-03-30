@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -6,11 +7,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Camera mainCamera;
-    
     private Rigidbody2D RB;
 
     public float lifeTime;
     public float bulletSpeed;
+    public float damage;
+
+    [SerializeField] private Damage damageFunction;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +34,13 @@ public class Bullet : MonoBehaviour
     {
         //Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            damageFunction.DealDamage(collision.gameObject, damage);
+        }
     }
 }

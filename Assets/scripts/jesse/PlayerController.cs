@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float cameraAngle;
 
+    [SerializeField] private GameObject gun;
+    [SerializeField] private GameObject gunSprite;
+    private bool gunFlipped = false;
+
     private Rigidbody2D rb;
 
     [HideInInspector]
@@ -21,15 +25,32 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.LookAt(mousePos, Vector3.forward);
+        gun.transform.LookAt(mousePos, Vector3.forward);
+        gun.transform.rotation = new Quaternion(gun.transform.rotation.x, gun.transform.rotation.y, 0, 0);
+        gun.transform.Rotate(0, 0, -90);
+        Debug.Log(gun.transform.rotation.y);
+        if(!gunFlipped && gun.transform.rotation.y < 0.7f || gunFlipped && gun.transform.rotation.y > 0.7f)
+        {
+            Debug.Log("GunFlipped");
+            gunFlipped = !gunFlipped;
+            gunSprite.transform.Rotate(180, 0, 0);
+        }
     }
 
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        dir = new Vector2(horizontal, vertical * cameraAngle) * playerData.MovementSpeed * playerData.MovementSpeedModifier;
-        rb.velocity += dir;
+        if(horizontal != 0 || vertical != 0)
+        {
+            dir = new Vector2(horizontal, vertical * cameraAngle) * playerData.MovementSpeed * playerData.MovementSpeedModifier;
+            rb.velocity = dir;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
+        
         
     }
 }

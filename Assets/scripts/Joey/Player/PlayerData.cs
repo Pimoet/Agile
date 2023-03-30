@@ -21,4 +21,11 @@ public class PlayerData : ScriptableObject
     //public List<WeaponData> Weapons;
     //public int CurrentWeapon;
     public List<QuestSO> QuestList;
+
+
+    public bool TakeDamage(float dmg)
+    {
+        CurrentHealth -= dmg;
+        return CurrentHealth <= 0;
+    }
 }

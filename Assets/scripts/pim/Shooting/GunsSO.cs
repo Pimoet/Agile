@@ -12,6 +12,5 @@ public class GunsSO : ScriptableObject
     public float reloadTime;
     public bool Automatic;
 
-    [SerializeField]
-    private SpriteRenderer gunSprite;
+    public Sprite gunSprite;
 }
