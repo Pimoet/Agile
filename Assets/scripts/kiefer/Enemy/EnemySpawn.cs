@@ -62,22 +62,22 @@ public class EnemySpawn : MonoBehaviour
             if (data.spawnTankAmount > 0)
             {
                 Instantiate(data.enemies[2].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                data.tankEnemyCount++;
                 data.spawnTankAmount--;
                 data.totalEnemyCount++;
-                data.tankEnemyCount++;
             }
             else if (data.spawnFastAmount > 0)
             {
                 Instantiate(data.enemies[1].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
+                data.fastEnemyCount++;
                 data.spawnFastAmount--;
                 data.totalEnemyCount++;
-                data.fastEnemyCount++;
             }
             else
             {
                 Instantiate(data.enemies[0].EnemyPrefab, checkSpawnPos(), Quaternion.identity);
-                data.totalEnemyCount++;
                 data.normalEnemyCount++;
+                data.totalEnemyCount++;
             }
         }
     }
