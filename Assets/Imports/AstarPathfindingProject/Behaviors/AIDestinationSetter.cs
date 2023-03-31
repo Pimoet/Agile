@@ -29,7 +29,7 @@ namespace Pathfinding {
 		}
         private void Start()
         {
-			player = GameObject.Find("Player");
+			player = GameObject.FindGameObjectWithTag("Player");
 			target = player.transform;
             
         }

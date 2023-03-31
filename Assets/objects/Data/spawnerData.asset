@@ -21,9 +21,9 @@ MonoBehaviour:
   minEnemyCount: 10
   spawnTotalAmount: 5
   spawnTankAmount: 0
-  tankEnemyCount: 2
+  tankEnemyCount: 0
   spawnFastAmount: 0
-  fastEnemyCount: 2
-  normalEnemyCount: 11
-  totalEnemyCount: 15
+  fastEnemyCount: 0
+  normalEnemyCount: 0
+  totalEnemyCount: 0
   needForSpawnAmount: 0

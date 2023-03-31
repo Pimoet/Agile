@@ -44,6 +44,7 @@ public class SpawnerData : ScriptableObject
                 tankEnemyCount--;
                 break;
         }
+        totalEnemyCount--;
     }
 
     public void StartListening()
