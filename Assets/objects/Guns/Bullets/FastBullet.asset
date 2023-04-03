@@ -16,4 +16,4 @@ MonoBehaviour:
   Speed: 15
   Pierce: 1
   Lifetime: 5
-  bulletSprite: {fileID: 0}
+  bulletSprite: {fileID: 1331573027, guid: 6bb4f43f4c96b6b4abf487ff18b6b2a9, type: 3}

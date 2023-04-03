@@ -32,6 +32,7 @@ public class SpawnerData : ScriptableObject
 
     public void OnEnemyKill(EnemyData data)
     {
+        Debug.Log("yes");
         switch (data.EnemyName)
         {
             case "Normal_Zombie":

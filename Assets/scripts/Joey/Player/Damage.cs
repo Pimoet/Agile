@@ -19,7 +19,8 @@ public class Damage : ScriptableObject
             bool isDead = target.GetComponent<EnemyDataHolder>().TakeDamage(damage);
             if (isDead)
             {
-                onEnemyKill.Invoke(target.GetComponent<EnemyDataHolder>().GetData());
+                Destroy(target.gameObject);
+                onEnemyKill(target.GetComponent<EnemyDataHolder>().GetData());
             }
         }
         if (target.CompareTag("Player"))
@@ -27,7 +28,7 @@ public class Damage : ScriptableObject
             bool isDead = target.GetComponent<PlayerController>().playerData.TakeDamage(damage);
             if (isDead)
             {
-                onPlayerDeath.Invoke();
+                onPlayerDeath();
             }
         }
         if (DebugOn)

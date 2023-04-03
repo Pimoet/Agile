@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 {
     private Camera mainCamera;
     private Rigidbody2D RB;
-    [SerializeField] private BulletData data;
+    public BulletData data;
 
     public float lifeTime;
     public float bulletSpeed;
@@ -20,11 +20,6 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifeTime = data.Lifetime;
-        bulletSpeed = data.Speed;
-        damage = data.Damage;
-        pierce = data.Pierce;
-        GetComponent<SpriteRenderer>().sprite = data.bulletSprite;
         RB = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         
@@ -41,6 +36,16 @@ public class Bullet : MonoBehaviour
     {
         //Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
 
+    }
+
+    public void SetData(BulletData d)
+    {
+        data = d;
+        lifeTime = data.Lifetime;
+        bulletSpeed = data.Speed;
+        damage = data.Damage;
+        pierce = data.Pierce;
+        GetComponent<SpriteRenderer>().sprite = data.bulletSprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

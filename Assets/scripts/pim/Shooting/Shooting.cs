@@ -99,8 +99,10 @@ public class Shooting : MonoBehaviour
         ammo--;
         shot = true;
         Invoke("shotReset", heldGun.fireRate);
-        Instantiate(bullet, gun.transform.position, Quaternion.identity);
-        Debug.Log(ammo);
+        var bulletInstance = Instantiate(bullet, gun.transform.position, Quaternion.identity);
+        bulletInstance.GetComponent<Bullet>().SetData(heldGun.bulletData); ;
+
+        //Debug.Log(ammo);
     }
 
     void MaxAmmo()

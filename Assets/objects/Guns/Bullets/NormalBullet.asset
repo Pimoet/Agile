@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bcc9d1d78aab748b019d0c14b53c5a, type: 3}
   m_Name: NormalBullet
   m_EditorClassIdentifier: 
-  Damage: 20
+  Damage: 200
   Speed: 10
-  Pierce: 1
+  Pierce: 3
   Lifetime: 10
-  bulletSprite: {fileID: 0}
+  bulletSprite: {fileID: -802604993, guid: 6bb4f43f4c96b6b4abf487ff18b6b2a9, type: 3}
