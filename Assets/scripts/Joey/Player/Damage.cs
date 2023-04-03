@@ -9,8 +9,11 @@ public class Damage : ScriptableObject
     public static event Action<EnemyData> onEnemyKill;
     public static event Action onPlayerDeath;
 
+    public bool DebugOn;
+
     public void DealDamage(GameObject target, float damage)
     {
+
         if (target.CompareTag("Enemy"))
         {
             bool isDead = target.GetComponent<EnemyDataHolder>().TakeDamage(damage);
@@ -26,6 +29,10 @@ public class Damage : ScriptableObject
             {
                 onPlayerDeath.Invoke();
             }
+        }
+        if (DebugOn)
+        {
+            Debug.Log($"hit {target.name} for {damage} damage.");
         }
         
     }

@@ -8,16 +8,23 @@ public class Bullet : MonoBehaviour
 {
     private Camera mainCamera;
     private Rigidbody2D RB;
+    [SerializeField] private BulletData data;
 
     public float lifeTime;
     public float bulletSpeed;
     public float damage;
+    public float pierce;
 
     [SerializeField] private Damage damageFunction;
 
     // Start is called before the first frame update
     void Start()
     {
+        lifeTime = data.Lifetime;
+        bulletSpeed = data.Speed;
+        damage = data.Damage;
+        pierce = data.Pierce;
+        GetComponent<SpriteRenderer>().sprite = data.bulletSprite;
         RB = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         
@@ -41,6 +48,11 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             damageFunction.DealDamage(collision.gameObject, damage);
+            pierce--;
+            if(pierce <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

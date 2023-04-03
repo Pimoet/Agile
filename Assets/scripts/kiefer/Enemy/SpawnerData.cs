@@ -56,4 +56,15 @@ public class SpawnerData : ScriptableObject
     {
         Damage.onEnemyKill -= OnEnemyKill;
     }
+
+    public void Reset()
+    {
+        spawnTankAmount = 0;
+        tankEnemyCount = 0;
+        spawnFastAmount = 0;
+        fastEnemyCount = 0;
+        normalEnemyCount = 0;
+        totalEnemyCount = 0;
+        needForSpawnAmount = 0;
+    }
 }

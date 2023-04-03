@@ -6,6 +6,8 @@ using UnityEngine;
 public class GunsSO : ScriptableObject
 {
     public string name;
+    public BulletData bulletData;
+
     public float damage;
     public float fireRate;
     public float magazineSize;

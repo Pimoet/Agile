@@ -30,6 +30,7 @@ public class EnemySpawn : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("Main Camera");
+        data.Reset();
     }
     void Update()
     {

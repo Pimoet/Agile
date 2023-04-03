@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Gun
   m_EditorClassIdentifier: 
   name: fastGun
+  bulletData: {fileID: 11400000, guid: 502c196778ab73d4398f5d3c10860979, type: 2}
   damage: 2
   fireRate: 0.1
   magazineSize: 30
   reloadTime: 1
   Automatic: 1
-  gunSprite: {fileID: -1453609279, guid: 9a0b0c8bb05b1e44c9f79ad3ef3e2f24, type: 3}
+  gunSprite: {fileID: 1755339470, guid: 9a0b0c8bb05b1e44c9f79ad3ef3e2f24, type: 3}

@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
         gun.transform.LookAt(mousePos, Vector3.forward);
         gun.transform.rotation = new Quaternion(gun.transform.rotation.x, gun.transform.rotation.y, 0, 0);
         gun.transform.Rotate(0, 0, -90);
-        Debug.Log(gun.transform.rotation.y);
         if(!gunFlipped && gun.transform.rotation.y < 0.7f || gunFlipped && gun.transform.rotation.y > 0.7f)
         {
             Debug.Log("GunFlipped");
