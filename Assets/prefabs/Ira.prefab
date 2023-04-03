@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 751600047348003309}
   - component: {fileID: 751600047348003310}
   - component: {fileID: 751600047348003299}
+  - component: {fileID: 1335097848753461311}
   m_Layer: 0
   m_Name: Ira
   m_TagString: Untagged
@@ -270,6 +271,19 @@ MonoBehaviour:
   bullet: {fileID: 4459960498120292177, guid: e12ed9a9218ae244d9c0f254ca7800b8, type: 3}
   gun: {fileID: 8505923728233656579}
   gunSprite: {fileID: 751600046485060822}
+--- !u!114 &1335097848753461311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751600047348003306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b913a86aac26d5047a7f5891d43d0a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: b4f2c8311a6caea4ca00977efd760610, type: 2}
 --- !u!1 &8505923728233656579
 GameObject:
   m_ObjectHideFlags: 0
