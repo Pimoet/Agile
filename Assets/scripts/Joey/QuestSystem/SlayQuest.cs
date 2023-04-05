@@ -1,26 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [CreateAssetMenu(menuName ="QuestInfo/Quests/KillQuest")]
 public class SlayQuest : QuestSO
 {
-    public string EnemyName; //replace with Enemy ScriptableObject or logic for the name
+    public EnemyData EnemyType;
     public int Count;
     public int CurrentCount;
 
-    //Event from player called OnEnemyKill PlayerCombat.OnEnemyKill += CheckQuest
-
     public override void OnStartQuest()
     {
+        Damage.onEnemyKill += CheckQuest;
         CurrentCount = 0;
-        //Update UI and stuff
+        Gui = GameObject.Find("GUI");
+        UIReference = Instantiate(UIPrefab,Gui.transform);
     }
-    public void CheckQuest(string name) // call on enemy kill
+
+    public override void OnEndQuest()
     {
-        if(name == EnemyName)
+        Damage.onEnemyKill -= CheckQuest;
+        Destroy(UIReference);
+        UIReference = null;
+    }
+
+    public override void UpdateUI()
+    {
+        UIReference.GetComponent<TextMeshPro>().text = $"{CurrentCount} / {Count}";
+
+    }
+    public void CheckQuest(EnemyData data) // call on enemy kill
+    {
+        if(data == EnemyType)
         {
             CurrentCount++;
+            UpdateUI();
         }
         if(CurrentCount >= Count)
         {
