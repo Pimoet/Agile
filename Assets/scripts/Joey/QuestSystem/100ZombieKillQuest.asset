@@ -12,14 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c59a9749e86514c93a92b510edde71, type: 3}
   m_Name: 100ZombieKillQuest
   m_EditorClassIdentifier: 
-  Name: Kill 100 Zombies
+  QuestName: Kill 100 Undead
   Description: 'to survive this game!
 
     just kill them all.'
   Reward: 0
   QuestType: 3
+  RestartOnDeath: 1
   HasFollowUpQuest: 0
   FollowUpQuest: {fileID: 0}
-  EnemyName: Zombie
+  Success: {fileID: 11400000, guid: d4fbb34395a795d40b101feb301cd2a9, type: 2}
+  Failure: {fileID: 11400000, guid: ede485e6a78ff33458e0c9ff29f5f44a, type: 2}
+  UIPrefab: {fileID: 0}
+  UIReference: {fileID: 0}
+  EnemyType: {fileID: 0}
   Count: 100
   CurrentCount: 0

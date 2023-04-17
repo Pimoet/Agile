@@ -21,6 +21,10 @@ public abstract class QuestSO : ScriptableObject
     public SucceedQuestSO Success;
     public FailQuestSO Failure;
 
+    public GameObject UIPrefab;
+    public GameObject UIReference;
+    protected GameObject Gui;
+
 
     public enum QuestTypes
     {
@@ -44,5 +48,8 @@ public abstract class QuestSO : ScriptableObject
         Failure.OnFail(this);
     }
 
+    public abstract void UpdateUI();
+
     public abstract void OnStartQuest();
+    public abstract void OnEndQuest();
 }

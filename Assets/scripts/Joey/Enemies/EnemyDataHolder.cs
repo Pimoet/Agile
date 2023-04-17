@@ -27,4 +27,15 @@ public class EnemyDataHolder : MonoBehaviour
     {
         
     }
+
+    public bool TakeDamage(float dmg)
+    {
+        currentHealth -= dmg;
+        return currentHealth <= 0;
+    }
+
+    public EnemyData GetData()
+    {
+        return data;
+    }
 }

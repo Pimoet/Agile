@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519ff085a4672e047b6e5f425a92726b, type: 3}
+  m_Name: New Shooting Ability
+  m_EditorClassIdentifier: 
+  name: Bomb
+  cooldownTime: 1
+  activeTime: 0.1
+  damage: 1
+  Bomb: {fileID: 712111293516935166, guid: a0829a045a0961e4b8a6b7faa6c0102e, type: 3}

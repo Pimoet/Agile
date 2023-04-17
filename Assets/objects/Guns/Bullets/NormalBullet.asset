@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bcc9d1d78aab748b019d0c14b53c5a, type: 3}
+  m_Name: NormalBullet
+  m_EditorClassIdentifier: 
+  Damage: 200
+  Speed: 10
+  Pierce: 3
+  Lifetime: 10
+  bulletSprite: {fileID: -802604993, guid: 6bb4f43f4c96b6b4abf487ff18b6b2a9, type: 3}

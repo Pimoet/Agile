@@ -10,10 +10,10 @@ public class Dash : Abillity
     public override void Activate(GameObject parent)
     {
         Debug.Log("DASH");
-        Movement movement = parent.GetComponent<Movement>();
+        PlayerController Movement = parent.GetComponent<PlayerController>();
         Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
 
-        rb.velocity = movement.moveDir.normalized * dashVelocity;
+        rb.velocity += Movement.dir * dashVelocity;
         Debug.Log(rb.velocity.sqrMagnitude);
     }
 

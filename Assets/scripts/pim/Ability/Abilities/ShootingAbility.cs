@@ -11,10 +11,10 @@ public class ShootingAbility : Abillity
     private float damage;
     [SerializeField]
 
-    GameObject Bullet;
+    GameObject Bomb;
     public override void Activate(GameObject parent)
     {
         Debug.Log("Shoot");
-        Instantiate(Bullet, parent.transform.position, quaternion.identity);
+        Instantiate(Bomb, parent.transform.position, quaternion.identity);
     }
 }
