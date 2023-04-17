@@ -6,7 +6,7 @@ using TMPro;
 [CreateAssetMenu(menuName ="QuestInfo/Quests/KillQuest")]
 public class SlayQuest : QuestSO
 {
-    public EnemyData EnemyType;
+    public List<EnemyData> EnemyTypes;
     public int Count;
     public int CurrentCount;
 
@@ -32,15 +32,21 @@ public class SlayQuest : QuestSO
     }
     public void CheckQuest(EnemyData data) // call on enemy kill
     {
-        if(data == EnemyType)
+        Debug.Log("enemy killed");
+        foreach(var enemyType in EnemyTypes)
         {
-            CurrentCount++;
-            UpdateUI();
+            if (data == enemyType)
+            {
+                CurrentCount++;
+                UpdateUI();
+            }
+            
         }
-        if(CurrentCount >= Count)
+        if (CurrentCount >= Count)
         {
             CompleteQuest();
         }
+
     }
 
     
